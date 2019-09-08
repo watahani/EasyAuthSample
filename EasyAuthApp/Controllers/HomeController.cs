@@ -12,6 +12,14 @@ namespace EasyAuthApp.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Message = "Who are you?";
+            ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;
+            var userName = principal?.Identity?.Name;
+            if (!String.IsNullOrEmpty(userName))
+            {
+                Console.WriteLine(userName);
+                ViewBag.Message = userName;
+            }
             return View();
         }
 
