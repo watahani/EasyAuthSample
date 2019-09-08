@@ -1,7 +1,27 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
-
+<br />
+<table>
+    @foreach (var item in @ViewBag.Table.Rows)
+    {
+        <tr>
+            <td><b>@item["Key"]</b></td>
+            <td>@item["Value"]</td>
+        </tr>
+    }
+</table>
+<br />
+<h3>User Principal</h3>
+<table>
+    @foreach (var item in @ViewBag.UserPrincipalTable.Rows)
+    {
+        <tr>
+            <td><b>@item["Key"]</b></td>
+            <td>@item["Value"]</td>
+        </tr>
+    }
+</table>
 <p>Use this area to provide additional information.</p>
